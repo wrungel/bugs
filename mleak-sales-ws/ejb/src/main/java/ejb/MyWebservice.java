@@ -1,6 +1,6 @@
 package ejb;
 
-import lib.ProjectionsImpl;
+import lib.A;
 import org.jboss.ws.api.annotation.WebContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +22,11 @@ public class MyWebservice {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    /// [1]
-    @Inject private Provider<ProjectionsImpl> projectionsProvider;
+    @Inject private Provider<A> a;
 
     public String foo() {
         String result = "[" + this.hashCode() + "]: totalMemory = " + Runtime.getRuntime().totalMemory() / (1024*1024) + "MByte";
-        projectionsProvider.get();
+        a.get();
         logger.info(result);
         return result;
     }

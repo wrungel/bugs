@@ -1,6 +1,6 @@
 package se;
 
-import lib.ProjectionsImpl;
+import lib.A;
 import org.jboss.weld.environment.se.bindings.Parameters;
 import org.jboss.weld.environment.se.events.ContainerInitialized;
 
@@ -15,11 +15,11 @@ public class Main {
 
     /// [1]
     @Inject
-    private Provider<ProjectionsImpl> projectionsProvider;
+    private Provider<A> a;
 
     public void foo(@Observes ContainerInitialized event, @Parameters List<String> parameters) throws InterruptedException {
         for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            projectionsProvider.get();
+            a.get();
             System.out.println(i);
             Thread.sleep(500);
         }
