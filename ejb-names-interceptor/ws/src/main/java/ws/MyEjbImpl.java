@@ -1,12 +1,10 @@
 package ws;
 
 import lib.Contextual;
-import lib.MyEjbRemoteInterface;
 import org.jboss.ws.api.annotation.WebContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
@@ -15,7 +13,6 @@ import javax.jws.WebService;
 @Contextual
 @WebService(targetNamespace = "http://v1.example.com/")
 @WebContext(contextRoot = "MyWebservice/v2")
-@Remote(MyEjbRemoteInterface.class)
 public class MyEjbImpl {
     /**
      * Name of Stateless-Bean and Namespace of XML-Types.
