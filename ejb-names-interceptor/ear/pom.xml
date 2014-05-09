@@ -25,13 +25,13 @@
                     <modules>
                         <ejbModule>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>ejb</artifactId>
-                            <bundleFileName>ejb-names-interceptor-ejb.jar</bundleFileName>
+                            <artifactId>ejb-v1</artifactId>
+                            <bundleFileName>ejb-names-interceptor-v1.jar</bundleFileName>
                         </ejbModule>
                         <ejbModule>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>ws</artifactId>
-                            <bundleFileName>ejb-names-interceptor-ws.jar</bundleFileName>
+                            <artifactId>ejb-v2</artifactId>
+                            <bundleFileName>ejb-names-interceptor-v2.jar</bundleFileName>
                         </ejbModule>
                     </modules>
                 </configuration>
@@ -45,14 +45,14 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ws</artifactId>
+            <artifactId>ejb-v1</artifactId>
             <version>${project.version}</version>
             <type>ejb</type>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>ejb</artifactId>
+            <artifactId>ejb-v2</artifactId>
             <version>${project.version}</version>
             <type>ejb</type>
         </dependency>

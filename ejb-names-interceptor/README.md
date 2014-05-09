@@ -1,31 +1,28 @@
-CDI Interceptors sometimes do not work if multiple EJBs with same name implement the same interace
-==================================================================================================
+EJBs with same Java class name not intercepted by CDI interceptors
+=======================================================================================
 
 Given
 -----
-* two EJBs with the same @Remote interface and with the same Java class name but from different Java packages.
+* two or more EJBs with the same Java class name but from different Java packages.
 
 Problem
 -------
-EJB method calls not always intercepted.
+Interceptor intercepts method calls to only one of the EJBs.
 
-If after new start of Wildfly Server intercepors work during the first call to some of the EJB methods, then they will work for any subsequent calls.
-If after new start of Wildfly Server intercepors DO NOT work during the first call to some of the EJB methods, then they will NOT work for any subsequent calls.
-
-After some debugging I realized, that the bug could be in
-`org.jboss.weld.interceptor.builder.InterceptionModelImpl#getInterceptors()`
-where for the method being called, enabled method interceptors are looked up.
-The `HashMap` which maps methods (key is `java.lang.reflect.Method`) to interceptors (`List<org.jboss.weld.interceptor.spi.metadata.InterceptorMetadata>`) always
-contains the method of one the beans with the same name.
-Both methods are different (because their declaring classes are different).
-If the Map accidentally contains the right Method as key then interceptors are executed.
-
+An EJB to be intercepted seems to be chosen randomly after each redeployment.
 
 Workaround
 ----------
-Rename Java class names of the EJBs so all names are unique.
+Rename __Java class names__ of the EJBs so all names are __unique__.
 
-Also tried without success:
+Also tried to override the names of EJBs according to JSR 318 (EJB 3.1) spec:<br/>
+<cite>&lt;bean-name&gt; is the ejb-name of the enterprise bean. For enterprise beans defined via annotation,
+it defaults to the unqualified name of the session bean class, unless specified in the contents of the
+Stateless/Stateful/Singleton annotation name() attribute.
+For enterprise beans defined via ejb-jar.xml, it’s specified in the &lt;ejb-name&gt; deployment descriptor element.)
+</cite>
+
+but without success:
 
 *   Overriding the EJB names of the beans in ejb-jar.xml
 *   Overriding the EJB names of the beans using `@Stateless(name="...")`
@@ -34,8 +31,11 @@ Also tried without success:
 How to reproduce
 ----------------
 1. Deploy EAR file to Wildfly
-2. Call the Webservice http://localhost:8080/MyWebservice/v2/MyEjbImpl
-3. Check server.log for output from `lib.MyInterceptor: Intercepted ws.MyEjbImpl.foo`
-4. If no log output from `lib.MyInterceptor` is seen, then restart the server and continue with step 2.
+2. Call the Webservice http://localhost:8080/MyWebservice/v1/MyEjbImpl?wsdl
+3. Call the Webservice http://localhost:8080/MyWebservice/v2/MyEjbImpl?wsdl
+4. Check server.log<br/>
+   expected 2 lines containing: `Intercepted v1.MyEjbImpl` and `Intercepted v2.MyEjbImpl`<br/>
+   but actually only one line (either containing `v1.MyEjbImpl` or `v2.MyEjbImpl`) exists.
+
 
 

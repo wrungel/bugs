@@ -15,7 +15,7 @@ public class MyInterceptor {
 
     @AroundInvoke
     public Object execute(InvocationContext ctx) throws Exception {
-        logger.info("Intercepted " + ctx.getTarget().getClass().getName() + "." + ctx.getMethod().getName());
+        logger.info("Intercepted " + ctx.getTarget().getClass().getName());
         return ctx.proceed();
     }
 }

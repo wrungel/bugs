@@ -1,4 +1,4 @@
-package ws;
+package v2;
 
 import lib.Contextual;
 import org.jboss.ws.api.annotation.WebContext;
@@ -11,19 +11,15 @@ import javax.jws.WebService;
 
 @Stateless
 @Contextual
-@WebService(targetNamespace = "http://v1.example.com/")
+@WebService(targetNamespace = "http://frol.example.com/")
 @WebContext(contextRoot = "MyWebservice/v2")
 public class MyEjbImpl {
-    /**
-     * Name of Stateless-Bean and Namespace of XML-Types.
-     */
-    public static final String name = "MyWebservice-V2";
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public String foo(Long bar) {
-        logger.debug("called");
-        return "";
+    public String v2() {
+        logger.debug("v2 called");
+        return "v2";
     }
 
 }

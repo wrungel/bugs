@@ -8,10 +8,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>ws</artifactId>
+    <artifactId>ejb-v1</artifactId>
 
     <properties>
         <version.jboss.spec.javaee.7.0>1.0.0.Final</version.jboss.spec.javaee.7.0>
+
     </properties>
 
     <dependencyManagement>
@@ -42,6 +43,7 @@
             <artifactId>lib</artifactId>
             <version>${project.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.jboss.ws</groupId>
             <artifactId>jbossws-api</artifactId>
@@ -61,7 +63,6 @@
         <dependency>
             <groupId>org.jboss.spec.javax.interceptor</groupId>
             <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
-            <!--<version>1.0.0.Final</version>-->
             <scope>provided</scope>
         </dependency>
 
