@@ -26,7 +26,7 @@ public class DeleteTest {
         a = em.find(Parent.class, a.getId());
 
         em.remove(a);
-        em.flush();
+        em.flush(); // fails hier with: org.hibernate.PropertyValueException: not-null property references a null or transient value : frol.Child.parent
 
         em.clear();
 
