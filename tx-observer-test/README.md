@@ -4,7 +4,7 @@ Transactional CDI Observer Arquillian test.
 This test shows:
 ----------------
 
-Sending transactional CDI events in a managed flush doesn't work in Wildfly 8.2.0.Final.
+Sending transactional CDI events from an JPA callback in a *managed flush* throws `IllegalStateException (ARJUNA016082)` in Wildfly 8.2.0.Final.
 
 Executing the test 
     
@@ -298,3 +298,8 @@ Results :
 
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 </code></pre>
+
+Sending CDI Events from an JPA callback, which is called during excplicit `flush()` works:
+     
+     mvn clean install -Dtest=TxObserverTest#no_error_during_explicit_flush
+ 
