@@ -18,10 +18,10 @@ public class TxObserverTest {
     @Deployment
     public static JavaArchive createDeployment() {
         JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
-                .addClass(UpdatePersistListener.class)
+                .addClass(UpdateListener.class)
                 .addClass(FooEntity.class)
                 .addClass(FooService.class)
-                .addClass(UpdatePersistObserver.class)
+                .addClass(UpdateObserver.class)
                 .addPackages(true, "org.apache.deltaspike.core")
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");

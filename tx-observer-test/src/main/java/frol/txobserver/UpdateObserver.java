@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import javax.enterprise.event.Observes;
 import javax.enterprise.event.TransactionPhase;
 
-public class UpdatePersistObserver {
-    private static final Logger logger = LoggerFactory.getLogger(UpdatePersistObserver.class);
+public class UpdateObserver {
+    private static final Logger logger = LoggerFactory.getLogger(UpdateObserver.class);
 
     public void AFTER_COMPLETION(@Observes(during = TransactionPhase.AFTER_COMPLETION) FooEntity foo) {
         logger.info("AFTER_COMPLETION event received");

@@ -6,11 +6,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.enterprise.inject.spi.BeanManager;
-import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 
-public class UpdatePersistListener {
-    private static final Logger logger = LoggerFactory.getLogger(UpdatePersistListener.class);
+public class UpdateListener {
+    private static final Logger logger = LoggerFactory.getLogger(UpdateListener.class);
 
     // Doesn't work:
     // @Inject
@@ -31,8 +30,7 @@ public class UpdatePersistListener {
     }
 
     @PreUpdate
-    @PrePersist
-    public void preUpdatePrePersist(Object object) {
+    public void callback(Object object) {
         if (object instanceof FooEntity) {
             logger.info("event sending");
             getBeanManager().fireEvent(object);

@@ -5,7 +5,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 
 @Entity
-@EntityListeners(UpdatePersistListener.class)
+@EntityListeners(UpdateListener.class)
 public class FooEntity {
 
     @Id
