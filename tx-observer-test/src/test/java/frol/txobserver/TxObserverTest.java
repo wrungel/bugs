@@ -22,6 +22,7 @@ public class TxObserverTest {
                 .addClass(FooEntity.class)
                 .addClass(FooService.class)
                 .addClass(UpdateObserver.class)
+                // DeltaSpike is used to obtain BeanManager in JPA callback
                 .addPackages(true, "org.apache.deltaspike.core")
                 .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
