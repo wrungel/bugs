@@ -21,47 +21,46 @@ public class VerfuegbareTarifkalender {
 
     private Kalender kalenderSommerWinter() {
         return make(a(Kalender,
-                with(KalenderInstantiator.name, ""),
                 with(KalenderInstantiator.kalenderversionen, listOf(
                         a(Kalenderversion,
                                 with(KalenderversionInstantiator.gueltigVon, (Object) null),
                                 with(KalenderversionInstantiator.kalenderdatensaetze, listOf(
                                         a(Kalenderdatensatz,
-                                                with(KalenderdatensatzInstantiator.gueltigVon, (MonthDay) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null)
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
                                         ),
                                         a(Kalenderdatensatz,
-                                                with(KalenderdatensatzInstantiator.gueltigVon, (MonthDay) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null)
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
                                         ),
                                         a(Kalenderdatensatz,
-                                                with(KalenderdatensatzInstantiator.gueltigVon, (MonthDay) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null)
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
                                         ),
                                         a(Kalenderdatensatz,
-                                                with(KalenderdatensatzInstantiator.gueltigVon, (MonthDay) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Tagestyp) null)
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
                                         )
                                 ))
                         )
@@ -71,16 +70,13 @@ public class VerfuegbareTarifkalender {
 
 
     public static class KalenderdatensatzInstantiator implements Instantiator<Kalenderdatensatz> {
-        public static final Property<Kalenderdatensatz, Tagestyp> mittwoch = Property.newProperty();
-        public static final Property<Kalenderdatensatz, MonthDay> gueltigVon = Property.newProperty();
+        public static final Property<Kalenderdatensatz, Object> mittwoch = Property.newProperty();
         public Kalenderdatensatz instantiate(PropertyLookup<Kalenderdatensatz> lookup) {
             return null;
         }
     }
 
     public static class KalenderInstantiator implements Instantiator<Kalender>{
-        public static final Property<Kalender, String> name = Property.newProperty();
-        public static final Property<Kalender, String> bemerkung = Property.newProperty();
         public static final Property<Kalender, List<Kalenderversion>> kalenderversionen = Property.newProperty();
 
         public Kalender instantiate(PropertyLookup<Kalender> lookup) {
@@ -97,9 +93,7 @@ public class VerfuegbareTarifkalender {
         }
     }
 
-    class MonthDay {}
     class Kalenderversion {}
     class Kalender {}
     class Kalenderdatensatz {}
-    class Tagestyp {}
 }
