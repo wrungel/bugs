@@ -1,5 +1,3 @@
-package frol;
-
 class VerfuegbareTarifkalender {
 
     private Donor kalenderSommerWinter() {
@@ -55,11 +53,7 @@ class VerfuegbareTarifkalender {
     interface Donor<T> {}
     class PropertyValue<T, V> {}
 
-    static <T> Donor<T> a(PropertyValue<? super T, ?>... propertyProviders) {
-        return null;
-    }
-
-    static <T,V,W extends V> PropertyValue<T,V> with(Object property, W value) {
+    static <T> Donor<T> a(PropertyValue<T, ?>... propertyProviders) {
         return null;
     }
 
