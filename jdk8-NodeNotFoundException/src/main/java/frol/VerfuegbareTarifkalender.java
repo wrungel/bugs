@@ -14,30 +14,20 @@ public class VerfuegbareTarifkalender {
     private KalenderdatensatzInstantiator Kalenderdatensatz;
 
 
-    private Kalender kalenderSommerWinter() {
-        return make(a(Kalender,
+    private Object kalenderSommerWinter() {
+        return make(a(
                 with(KalenderInstantiator.kalenderversionen, listOf(
-                        a(Kalenderversion,
+                        a(
                                 with(KalenderversionInstantiator.gueltigVon, (Object) null),
                                 with(KalenderversionInstantiator.kalenderdatensaetze, listOf(
-                                        a(Kalenderdatensatz,
+                                        a(
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
                                         ),
-                                        a(Kalenderdatensatz,
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
-                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
-                                        ),
-                                        a(Kalenderdatensatz,
+                                        a(
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
@@ -47,7 +37,17 @@ public class VerfuegbareTarifkalender {
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
                                         ),
-                                        a(Kalenderdatensatz,
+                                        a(
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
+                                                with(KalenderdatensatzInstantiator.mittwoch, (Object) null)
+                                        ),
+                                        a(
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
                                                 with(KalenderdatensatzInstantiator.mittwoch, (Object) null),
@@ -66,32 +66,28 @@ public class VerfuegbareTarifkalender {
 
 
 
-    public static class KalenderdatensatzInstantiator implements Instantiator<Kalenderdatensatz> {
-        public static final Property<Kalenderdatensatz, Object> mittwoch = null;
+    public static class KalenderdatensatzInstantiator {
+        public static final Property<Object, Object> mittwoch = null;
     }
 
-    public static class KalenderInstantiator implements Instantiator<Kalender>{
-        public static final Property<Kalender, List<Kalenderversion>> kalenderversionen = null;
+    public static class KalenderInstantiator {
+        public static final Property<Object, List<Object>> kalenderversionen = null;
     }
 
-    public static class KalenderversionInstantiator implements Instantiator<Kalenderversion> {
-        public static final Property<Kalenderversion, Object> gueltigVon = null;
-        public static final Property<Kalenderversion, List<Kalenderdatensatz>> kalenderdatensaetze = null;
+    public static class KalenderversionInstantiator {
+        public static final Property<Object, Object> gueltigVon = null;
+        public static final Property<Object, List<Object>> kalenderdatensaetze = null;
     }
-
-    class Kalenderversion {}
-    class Kalender {}
-    class Kalenderdatensatz {}
 
 
     public interface Donor<T> {}
-    public interface Instantiator<T> {}
-    public class Maker<T> implements PropertyLookup<T>, Donor<T> {}
+    public class Maker<T> implements Donor<T> {}
     public class Property<T, V> {}
-    public interface PropertyLookup<T> {}
     public class PropertyValue<T, V> {}
-    public static class MakeItEasy {
-        public static <T> Maker<T> a(Instantiator<T> instantiator, PropertyValue<? super T, ?>... propertyProviders) {
+
+    public static class MakeItEasy
+    {
+        public static <T> Maker<T> a(PropertyValue<? super T, ?>... propertyProviders) {
             return null;
         }
 
@@ -99,15 +95,7 @@ public class VerfuegbareTarifkalender {
             return null;
         }
 
-        public static <T,V,W extends V> PropertyValue<T,V> with(W value, Property<T,V> property) {
-            return null;
-        }
-
         public static <T,V,W extends V> PropertyValue<T,V> with(Property<T,V> property, Donor<W> valueDonor) {
-            return null;
-        }
-
-        public static <T,V,W extends V> PropertyValue<T,V> with(Donor<W> valueDonor, Property<T,V> property) {
             return null;
         }
 
