@@ -2,10 +2,10 @@ package frol;
 
 import java.util.List;
 
-import static frol.MakeItEasy.a;
-import static frol.MakeItEasy.listOf;
-import static frol.MakeItEasy.make;
-import static frol.MakeItEasy.with;
+import static frol.VerfuegbareTarifkalender.MakeItEasy.a;
+import static frol.VerfuegbareTarifkalender.MakeItEasy.listOf;
+import static frol.VerfuegbareTarifkalender.MakeItEasy.make;
+import static frol.VerfuegbareTarifkalender.MakeItEasy.with;
 
 public class VerfuegbareTarifkalender {
 
@@ -67,30 +67,57 @@ public class VerfuegbareTarifkalender {
 
 
     public static class KalenderdatensatzInstantiator implements Instantiator<Kalenderdatensatz> {
-        public static final Property<Kalenderdatensatz, Object> mittwoch = Property.newProperty();
-        public Kalenderdatensatz instantiate(PropertyLookup<Kalenderdatensatz> lookup) {
-            return null;
-        }
+        public static final Property<Kalenderdatensatz, Object> mittwoch = null;
     }
 
     public static class KalenderInstantiator implements Instantiator<Kalender>{
-        public static final Property<Kalender, List<Kalenderversion>> kalenderversionen = Property.newProperty();
-
-        public Kalender instantiate(PropertyLookup<Kalender> lookup) {
-            return null;
-        }
+        public static final Property<Kalender, List<Kalenderversion>> kalenderversionen = null;
     }
 
     public static class KalenderversionInstantiator implements Instantiator<Kalenderversion> {
-        public static final Property<Kalenderversion, Object> gueltigVon = Property.newProperty();
-        public static final Property<Kalenderversion, List<Kalenderdatensatz>> kalenderdatensaetze = Property.newProperty();
-
-        public Kalenderversion instantiate(PropertyLookup<Kalenderversion> lookup) {
-            return null;
-        }
+        public static final Property<Kalenderversion, Object> gueltigVon = null;
+        public static final Property<Kalenderversion, List<Kalenderdatensatz>> kalenderdatensaetze = null;
     }
 
     class Kalenderversion {}
     class Kalender {}
     class Kalenderdatensatz {}
+
+
+    public interface Donor<T> {}
+    public interface Instantiator<T> {}
+    public class Maker<T> implements PropertyLookup<T>, Donor<T> {}
+    public class Property<T, V> {}
+    public interface PropertyLookup<T> {}
+    public class PropertyValue<T, V> {}
+    public static class MakeItEasy {
+        public static <T> Maker<T> a(Instantiator<T> instantiator, PropertyValue<? super T, ?>... propertyProviders) {
+            return null;
+        }
+
+        public static <T,V,W extends V> PropertyValue<T,V> with(Property<T,V> property, W value) {
+            return null;
+        }
+
+        public static <T,V,W extends V> PropertyValue<T,V> with(W value, Property<T,V> property) {
+            return null;
+        }
+
+        public static <T,V,W extends V> PropertyValue<T,V> with(Property<T,V> property, Donor<W> valueDonor) {
+            return null;
+        }
+
+        public static <T,V,W extends V> PropertyValue<T,V> with(Donor<W> valueDonor, Property<T,V> property) {
+            return null;
+        }
+
+        public static <T> T make(Maker<T> maker) {
+            return null;
+        }
+
+        public static <T> Donor<List<T>> listOf(Donor<? extends T>... donors) {
+            return null;
+        }
+
+    }
 }
